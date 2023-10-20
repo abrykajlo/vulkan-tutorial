@@ -5,12 +5,14 @@ find_package(Vulkan REQUIRED)
 
 include(FetchContent)
 
-# GLFW
-FetchContent_Declare(glfw
-    GIT_REPOSITORY https://github.com/glfw/glfw.git
+set(SDL_STATIC ON)
+# SDL2
+FetchContent_Declare(sdl3
+    GIT_REPOSITORY https://github.com/libsdl-org/SDL
+    GIT_TAG main
 )
-FetchContent_MakeAvailable(glfw)
-set(GLFW_INCLUDE_DIRS "${GLFW_SOURCE_DIR}/include" PARENT_SCOPE)
+FetchContent_MakeAvailable(sdl3)
+set(sdl3_INCLUDE_DIRS "${sdl3_SOURCE_DIR}/include")
 
 # GLM
 FetchContent_Declare(glm
